@@ -1,0 +1,71 @@
+
+/* Hero & Trigger */
+.hub-header { text-align: center; padding: 60px 10%; }
+.blood-drop-trigger { position: relative; cursor: pointer; display: inline-block; margin-bottom: 20px; }
+.drop-icon { font-size: 6rem; position: relative; z-index: 5; }
+.click-hint { font-weight: bold; color: #ff4d4d; letter-spacing: 1px; margin-top: 10px; }
+
+.pulse-ring {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 100px; height: 100px; border: 3px solid #ff4d4d; border-radius: 50%;
+    animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+    0% { width: 80px; height: 80px; opacity: 1; }
+    100% { width: 200px; height: 200px; opacity: 0; }
+}
+
+/* 3D Cards Grid */
+.compatibility-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 40px 10%; }
+.blood-card { height: 320px; perspective: 1000px; }
+.card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d; cursor: pointer; }
+.blood-card:hover .card-inner { transform: rotateY(180deg); }
+
+.card-front, .card-back {
+    position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
+    border-radius: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(15px);
+}
+
+.card-front { background: rgba(255, 255, 255, 0.05); }
+.card-back { background: #ff4d4d; color: white; transform: rotateY(180deg); padding: 30px; text-align: center; }
+
+.type-title { font-size: 4.5rem; font-weight: 900; color: #ff4d4d; }
+
+/* Simulator Overlay */
+.sim-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.92); backdrop-filter: blur(25px); z-index: 3000;
+    justify-content: center; align-items: center;
+}
+
+.sim-content {
+    background: rgba(255, 255, 255, 0.07); padding: 50px; border-radius: 40px;
+    border: 1px solid rgba(255,255,255,0.15); width: 90%; max-width: 700px; position: relative;
+}
+
+.donor-selector { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 25px; }
+.donor-selector button {
+    padding: 12px 18px; border-radius: 12px; border: 1px solid #ff4d4d;
+    background: transparent; color: white; font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.donor-selector button:hover { background: #ff4d4d; box-shadow: 0 0 15px #ff4d4d; }
+
+.recipient-display { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 40px; }
+.recipient-node {
+    padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1); transition: 0.5s; opacity: 0.2; font-weight: bold;
+}
+
+.recipient-node.match {
+    opacity: 1; background: rgba(255, 77, 77, 0.4); border-color: #ff4d4d;
+    box-shadow: 0 0 20px #ff4d4d; transform: scale(1.05);
+}
+
+.sim-status { margin-top: 30px; font-size: 1.1rem; color: #ff4d4d; font-weight: 500; }
+.close-sim { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: white; background: none; border: none; cursor: pointer; }
+
+/* Reveal Helper */
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
