@@ -1,0 +1,46 @@
+/* ══════════════════════════════════════════════════
+   DengResQ auth.css — PATCH (append to auth.css)
+   Required field stars + form footer link row
+══════════════════════════════════════════════════ */
+
+/* Required field star indicator */
+.req-star {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-left: 3px;
+    font-style: normal;
+    line-height: 1;
+}
+
+/* Legend block explaining the star */
+.req-legend {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    padding: 0.45rem 0.8rem;
+    background: rgba(231, 76, 60, 0.06);
+    border-left: 3px solid #e74c3c;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.5;
+}
+
+/* Form footer row: note on left, link on right */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+.form-footer p,
+.form-footer a {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+}
+.form-footer a { color: var(--red-bright); }
+.form-footer a:hover { color: var(--text); text-decoration: underline; }
