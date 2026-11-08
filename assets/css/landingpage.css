@@ -1,0 +1,93 @@
+
+/* Full Page Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    /* Background setup with a dark tint for readability */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('Gemini_Generated_Image_tcxstztcxstztcxs.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    color: white;
+}
+
+/* Transparent Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); 
+}
+
+.logo { font-size: 2rem; font-weight: bold; color: #ff4d4d; }
+.nav-links a { text-decoration: none; margin-left: 25px; color: white; font-weight: 500; font-size: 1.1rem; }
+.login-btn { background: #ff4d4d; padding: 10px 25px; border-radius: 5px; }
+
+/* Centering Content */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 80vh;
+    padding: 0 10%;
+}
+
+/* Increased Main Heading and Paragraph sizes */
+.hero-content h1 { font-size: 4.5rem; margin-bottom: 15px; }
+.hero-content p { font-size: 1.5rem; margin-bottom: 40px; opacity: 0.9; max-width: 600px; }
+
+/* Ticker Styles (Completely transparent, no border) */
+.ticker-container {
+    display: flex;
+    align-items: center;
+    background: transparent; 
+    padding: 10px 0;
+    width: fit-content;
+}
+
+.ticker-label { 
+    font-weight: bold; 
+    color: #ffffff; 
+    margin-right: 20px; 
+    font-size: 1.8rem; /* Scaled up label */
+}
+
+.ticker-window {
+    height: 60px; /* Increased height to accommodate larger rolling text */
+    overflow: hidden;
+    position: relative;
+    /* Maintaining the fading effect for the "rolling" aesthetic */
+    mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
+}
+
+.ticker {
+    display: flex;
+    flex-direction: column;
+    animation: lockScroll 12s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+}
+
+.ticker-item {
+    height: 60px; /* Matches window height */
+    line-height: 60px; 
+    font-weight: bold;
+    color: #ff4d4d; 
+    font-size: 2.2rem; /* Significantly larger rolling text */
+    white-space: nowrap;
+}
+
+/* Animation Keyframes updated to match 60px height steps */
+@keyframes lockScroll {
+    0%   { transform: translateY(0); }
+    20%  { transform: translateY(-60px); }
+    40%  { transform: translateY(-120px); }
+    60%  { transform: translateY(-180px); }
+    80%  { transform: translateY(-240px); }
+    100% { transform: translateY(-300px); }
+}
