@@ -1,0 +1,95 @@
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    padding: 50px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+.login-container h2 { font-size: 2.2rem; margin-bottom: 10px; color: #fff; }
+.login-container p { color: rgba(255,255,255,0.6); margin-bottom: 30px; }
+
+/* Role Selection Buttons */
+.role-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.role-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.role-btn:hover {
+    background: rgba(255, 77, 77, 0.2);
+    border-color: #ff4d4d;
+    transform: scale(1.02);
+}
+
+.role-btn .icon { font-size: 1.5rem; }
+
+/* Form Elements */
+.back-btn {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    outline: none;
+}
+
+input:focus { border-color: #ff4d4d; background: rgba(255,255,255,0.1); }
+
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+}
+
+.submit-btn:hover { background: #ff3333; transform: translateY(-2px); }
+
+.reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
