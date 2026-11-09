@@ -1,1 +1,120 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DengResQ | Blood Hub</title>
+    <link rel="stylesheet" href="/DengResQ/assets/css/landingpage.css">
+    <link rel="stylesheet" href="/DengResQ/assets/css/bloodhub.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DengResQ</div>
+        <div class="nav-links">
+            <a href="landingpage.html">Home</a>
+            <a href="network.html">Our Network</a>
+            <a href="bloodhub.html">Blood Hub</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <header class="hub-header reveal">
+        <div class="simulation-container">
+            <div class="blood-drop-trigger" onclick="openSimulator()">
+                <span class="drop-icon">💧</span>
+                <div class="pulse-ring"></div>
+                <p class="click-hint">Click to Simulate</p>
+            </div>
+        </div>
+        <h1>The Life Exchange</h1>
+        <p>In Dengue emergencies, every drop counts. Explore compatibility or launch the simulator above.</p>
+    </header>
+
+    <section class="compatibility-grid reveal">
+        <div class="blood-card">
+            <div class="card-inner">
+                <div class="card-front"><span class="type-title">O-</span><p>Universal Donor</p></div>
+                <div class="card-back"><h3>O- Negative</h3><p>Can give to: ALL<p>Can receive: O-</p></div>
+            </div>
+        </div>
+        <div class="blood-card">
+            <div class="card-inner">
+                <div class="card-front"><span class="type-title">O+</span><p>Critical Need</p></div>
+                <div class="card-back"><h3>O+ Positive</h3><p>Can give to: O+, A+, B+, AB+<p>Can receive: O+, O-</p></div>
+            </div>
+        </div>
+        <div class="blood-card">
+            <div class="card-inner">
+                <div class="card-front"><span class="type-title">AB+</span><p>Universal Recipient</p></div>
+                <div class="card-back"><h3>AB+ Positive</h3><p>Can give to: AB+<p>Can receive: ALL</p></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="blood-sim" class="sim-overlay">
+        <div class="sim-content">
+            <button class="close-sim" onclick="closeSimulator()">×</button>
+            <h2 style="color: #ff4d4d;">Compatibility Lab</h2>
+            <p>Select a <strong>Donor</strong> type to see who can receive the blood:</p>
+            
+            <div class="donor-selector">
+                <button onclick="runSim('O-')">O-</button>
+                <button onclick="runSim('O+')">O+</button>
+                <button onclick="runSim('A-')">A-</button>
+                <button onclick="runSim('A+')">A+</button>
+                <button onclick="runSim('B-')">B-</button>
+                <button onclick="runSim('B+')">B+</button>
+                <button onclick="runSim('AB-')">AB-</button>
+                <button onclick="runSim('AB+')">AB+</button>
+            </div>
+
+            <div class="recipient-display">
+                <div class="recipient-node" id="node-O-">-O</div>
+                <div class="recipient-node" id="node-O+">+O</div>
+                <div class="recipient-node" id="node-A-">-A</div>
+                <div class="recipient-node" id="node-A+">+A</div>
+                <div class="recipient-node" id="node-B-">-B</div>
+                <div class="recipient-node" id="node-B+">+B</div>
+                <div class="recipient-node" id="node-AB-">-AB</div>
+                <div class="recipient-node" id="node-AB+">+AB</div>
+            </div>
+            <p id="sim-result" class="sim-status">Select a donor type above</p>
+        </div>
+    </div>
+
+    <script>
+        // Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Simulator Logic
+        const rules = {
+            'O-': ['O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+'],
+            'O+': ['O+', 'A+', 'B+', 'AB+'],
+            'A-': ['A-', 'A+', 'AB-', 'AB+'],
+            'A+': ['A+', 'AB+'],
+            'B-': ['B-', 'B+', 'AB-', 'AB+'],
+            'B+': ['B+', 'AB+'],
+            'AB-': ['AB-', 'AB+'],
+            'AB+': ['AB+']
+        };
+
+        function openSimulator() { document.getElementById('blood-sim').style.display = 'flex'; }
+        function closeSimulator() { document.getElementById('blood-sim').style.display = 'none'; }
+
+        function runSim(type) {
+            document.querySelectorAll('.recipient-node').forEach(n => n.classList.remove('match'));
+            rules[type].forEach(m => {
+                document.getElementById(`node-${m}`).classList.add('match');
+            });
+            document.getElementById('sim-result').innerText = `Donor ${type} can safely give to: ${rules[type].join(', ')}`;
+        }
+    </script>
+</body>
+</html>
