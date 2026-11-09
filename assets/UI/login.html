@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DengResQ | Secure Access</title>
+    <link rel="stylesheet" href="/DengResQ/assets/css/landingpage.css">
+    <link rel="stylesheet" href="/DengResQ/assets/css/login.css">
+    <style>
+        /* Institution button — teal/blue accent to distinguish from the other 3 */
+        .role-btn.inst-btn {
+            border-color: rgba(56,189,248,0.25);
+        }
+        .role-btn.inst-btn:hover {
+            border-color: #38bdf8;
+            background: rgba(56,189,248,0.08);
+            box-shadow: 0 0 24px rgba(56,189,248,0.12);
+        }
+        .role-btn.inst-btn .icon { filter: none; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DengResQ</div>
+        <div class="nav-links">
+            <a href="landingpage.html">Home</a>
+            <a href="network.html">Our Network</a>
+            <a href="bloodhub.html">Blood Hub</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <div class="login-wrapper reveal">
+        <div class="login-container">
+            <div id="role-selector">
+                <h2>Access the Portal</h2>
+                <p>Select your identity to continue</p>
+                <div class="role-options">
+                    <button class="role-btn" onclick="redirectToPortal('citizen')">
+                        <span class="icon">👤</span> Citizen
+                    </button>
+                    <button class="role-btn" onclick="redirectToPortal('hospital')">
+                        <span class="icon">🏥</span> Hospital
+                    </button>
+                    <button class="role-btn" onclick="redirectToPortal('ho')">
+                        <span class="icon">🛡️</span> Health Officer
+                    </button>
+                    <button class="role-btn inst-btn" onclick="redirectToPortal('institution')">
+                        <span class="icon">🎓</span> University
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const rolePages = {
+        citizen:     '/DengResQ/citizen/views/citizen_auth.php',
+        hospital:    '/DengResQ/hospital/views/hospital_auth.php',
+        ho:          '/DengResQ/ho/views/ho_auth.php',
+        institution: '/DengResQ/institution/views/auth.php'
+    };
+
+    function redirectToPortal(role) {
+        if (rolePages[role]) {
+            window.location.href = rolePages[role];
+        }
+    }
+
+    window.onload = () => {
+        document.querySelector('.reveal').classList.add('active');
+    };
+    </script>
+</body>
+</html>
