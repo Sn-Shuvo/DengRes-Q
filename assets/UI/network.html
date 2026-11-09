@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DengResQ | Professional Network</title>
+    <link rel="stylesheet" href="/DengResQ/assets/css/landingpage.css">
+    <link rel="stylesheet" href="/DengResQ/assets/css/network.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DengResQ</div>
+        <div class="nav-links">
+            <a href="landingpage.html">Home</a>
+            <a href="network.html">Our Network</a>
+            <a href="bloodhub.html">Blood Hub</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <header class="network-header reveal">
+        <div class="badge">Ecosystem v2.0</div>
+        <h1>Unified Surveillance. <br><span class="highlight">Individual Impact.</span></h1>
+        <p class="main-desc">
+            DengResQ isn't just a database; it’s a living network. We bridge the critical gap between 
+            unverified field reports and official medical action, ensuring that every citizen has 
+            the power to protect their community.
+        </p>
+    </header>
+
+    <section class="feature-section left reveal">
+        <div class="feature-icon-box citizen-glow">🛡️</div>
+        <div class="feature-text">
+            <span class="role-tag">Community Role</span>
+            <h2>The Citizen Shield</h2>
+            <p>Every smartphone becomes a sensor. By reporting breeding sites and symptoms, citizens provide the <strong>ground-truth data</strong> necessary to stop an outbreak before it starts. Our system rewards proactive users with a trusted reputation score, making you a vital part of the city's defense.</p>
+            <div class="benefit-list">
+                <span>✓ Real-time Hotspot Maps</span>
+                <span>✓ Urgent Blood Aid Requests</span>
+                <span>✓ Neighborhood Safety Alerts</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-section right reveal">
+        <div class="feature-text">
+            <span class="role-tag hospital-tag">Medical Infrastructure</span>
+            <h2>Hospital Command</h2>
+            <p>Hospitals are no longer isolated. Through DengResQ, medical facilities synchronize their blood banks and patient data. This <strong>collaborative intelligence</strong> allows for resource redistribution, ensuring that O-negative blood or plasma reaches the patient who needs it most in minutes, not hours.</p>
+            <div class="benefit-list">
+                <span>✓ Inventory Synchronization</span>
+                <span>✓ Patient Trend Analytics</span>
+                <span>✓ Cross-Facility Requests</span>
+            </div>
+        </div>
+        <div class="feature-icon-box hospital-glow">🏥</div>
+    </section>
+
+    <section class="why-us reveal">
+        <h2 class="section-title">Why Trust DengResQ?</h2>
+        <div class="benefit-grid">
+            <div class="benefit-card">
+                <div class="b-icon">⚡</div>
+                <h3>Instant Response</h3>
+                <p>Seconds save lives. Our notification engine reaches field officers the moment a site is verified.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="b-icon">🔒</div>
+                <h3>Verified Truth</h3>
+                <p>No misinformation. Every report undergoes a two-step verification by certified Health Officers.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="b-icon">📊</div>
+                <h3>Visual Intelligence</h3>
+                <p>Transforming complex medical data into intuitive heatmaps for better decision-making.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="network-cta reveal">
+        <h2>Ready to make an impact?</h2>
+        <p>Join thousands of users in the fight against Dengue.</p>
+        <a href="login.html" class="cta-button">Create an Account</a>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
